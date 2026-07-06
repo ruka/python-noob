@@ -110,3 +110,15 @@ def calculator(x, y, func):
 
 m = calculator(3, 5, mul)
 print(m)
+
+
+# 练习8：匿名函数
+lambda x, y: x + y
+
+
+def add(x, y): return x + y
+
+
+x = int(input())
+y = int(input())
+print(add(x, y))
