@@ -116,22 +116,27 @@ class Edumanagement:
             print("5. 展示所有学生信息")
             print("6. 退出系统")
             print("=" * 30)
-            choice = input("请输入操作编号（1-6）：")
-            if choice == "1":
-                self.add_student()
-            elif choice == "2":
-                self.update_student()
-            elif choice == "3":
-                self.delete_student()
-            elif choice == "4":
-                self.query_student()
-            elif choice == "5":
-                self.show_all_students()
-            elif choice == "6":
-                print("退出系统！")
-                break
-            else:
-                print("输入有误，请重新输入！")
+            try:
+                choice = input("请输入操作编号（1-6）：")
+                if choice == "1":
+                    self.add_student()
+                elif choice == "2":
+                    self.update_student()
+                elif choice == "3":
+                    self.delete_student()
+                elif choice == "4":
+                    self.query_student()
+                elif choice == "5":
+                    self.show_all_students()
+                elif choice == "6":
+                    print("退出系统！")
+                    break
+                else:
+                    print("输入有误，请重新输入！")
+            except Exception as e:
+                print("发生了一个异常:", e)
+            finally:
+                print("程序执行结束。\n")
 
 
 # 运行代码
