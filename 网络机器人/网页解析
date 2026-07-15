@@ -1,0 +1,22 @@
+import requests
+from lxml import html
+
+url = "https://www.tiobe.com/tiobe-index/"
+
+# 1. 发送 HTTP 请求获取页面内容
+response = requests.get(url)
+
+# 2. 用变量接收所获取的内容
+document = html.document_fromstring(response.text)
+# print(response.text)
+
+# list1 = document.xpath("//table[@id='top20']/thead/tr/th/text()")  # 获取表头
+list1 = document.xpath(
+    "/html/body/section/div/article/table[1]/thead/tr/th/text()")
+print(list1)
+# list2 = document.xpath("//table[@id='top20']/tbody/tr")  # 获取数据
+list2 = document.xpath(
+    "/html/body/section/div/article/table[@id='top20']/tbody/tr")
+for tr in list2:
+    td_list = tr.xpath("./td/text()")
+    print(td_list)
